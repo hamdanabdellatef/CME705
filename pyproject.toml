@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cme705-course"
+version = "0.1.0"
+description = "CME705 Machine Learning: Neural Networks, Deep Learning, and Research Practice"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy>=2.0,<3.0",
+  "torch>=2.5,<3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<10.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools]
+py-modules = []

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this course, please cite it as follows."
+title: "CME705 Machine Learning: Neural Networks, Deep Learning, and Research Practice"
+type: software
+authors:
+  - family-names: Abdellatef
+    given-names: Hamdan
+    affiliation: Karabuk University
+version: 0.1.0
+repository-code: "https://github.com/hamdanabdellatef/CME705"
+url: "https://github.com/hamdanabdellatef/CME705"
+date-released: 2026-09-05
+license: CC-BY-4.0
