@@ -4,7 +4,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 
 | Week | Topic and module | Practical work | Research milestone |
 | ---: | --- | --- | --- |
-| 1 | [Course purpose and ML foundations](modules/01-ml-foundations/README.md) | Python/NumPy diagnostic | [Research-interest memo](assignments/01-research-interest.md) |
+| 1 | [Course purpose and ML foundations](modules/01-ml-foundations/README.md) | [Python/NumPy diagnostic](labs/week01_python_numpy_diagnostic.py) | [Research-interest memo](assignments/01-research-interest.md) |
 | 2 | [Generalization and evaluation](modules/02-data-and-evaluation/README.md) | [Leakage-safe evaluation](labs/week02_evaluation_numpy.py) | Identify a feasible dataset |
 | 3 | [Data quality and model comparison](modules/02-data-and-evaluation/README.md) | Missingness, imbalance, features, and baselines | [Problem proposal](assignments/02-problem-proposal.md) |
 | 4 | [Neural-network computation](modules/03-neural-network-basics/README.md) | Activations, outputs, and NumPy operations | [Literature comparison](assignments/03-literature-comparison.md) |

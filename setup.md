@@ -36,6 +36,7 @@ PyTorch publishes platform-specific installation commands for GPU acceleration. 
 ```bash
 python -m compileall labs tests
 python -m pytest
+python labs/week01_python_numpy_diagnostic.py
 python labs/week02_evaluation_numpy.py
 python labs/week05_gradient_descent.py
 python labs/week06_mlp_numpy.py

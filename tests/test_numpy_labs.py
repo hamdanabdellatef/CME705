@@ -1,10 +1,29 @@
 import numpy as np
 
+from labs.week01_python_numpy_diagnostic import (
+    accuracy,
+    inspection_rule,
+    make_machine_data,
+    majority_baseline,
+)
 from labs.week02_evaluation_numpy import grouped_split
 from labs.week05_gradient_descent import iter_minibatches
 from labs.week06_mlp_numpy import train_xor
 from labs.week07_softmax_numpy import cross_entropy, softmax
 from labs.week08_dropout_numpy import inverted_dropout, sigmoid_dropout_backward
+
+
+def test_week01_rule_beats_the_baseline_on_its_teaching_data():
+    features, target = make_machine_data(seed=705)
+    repeated_features, repeated_target = make_machine_data(seed=705)
+    _, prediction = inspection_rule(features)
+    baseline = majority_baseline(target)
+
+    assert features.shape == (160, 3)
+    assert target.shape == (160,)
+    assert np.array_equal(features, repeated_features)
+    assert np.array_equal(target, repeated_target)
+    assert accuracy(target, prediction) > accuracy(target, baseline) + 0.15
 
 
 

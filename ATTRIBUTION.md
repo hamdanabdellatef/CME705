@@ -7,3 +7,7 @@ The historical working directory contains third-party textbooks, MIT 6.S191 slid
 This repository links to official sources in [`readings/README.md`](readings/README.md). A link does not place the linked resource under this repository's license. Any future imported figure, dataset, or code sample must be recorded here with its author, source, license, and modifications.
 
 Student submissions, grades, attendance, and identifying records are excluded. A student example may be added only with explicit permission, appropriate attribution, and review of its data and dependencies.
+
+## Original generated assets
+
+- `modules/01-ml-foundations/assets/week01-cover.png`: original abstract course-cover illustration generated with OpenAI image generation on 5 September 2026. The prompt requested observations becoming a learned decision boundary in a restrained navy, teal, cyan, and amber academic style, with no text, logos, people, or watermark.

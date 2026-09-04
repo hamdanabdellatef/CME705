@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- expanded Week 1 into a complete teaching package with notes, slides, a worksheet, and an instructor guide;
+- added a tested Python/NumPy diagnostic using generated machine-maintenance data; and
+- expanded the research-interest memo with a clear process, rubric, and submission check.
+
 ## 0.1.0 - 2026-09-05
 
 - established the title *CME705 Machine Learning: Neural Networks, Deep Learning, and Research Practice*;
