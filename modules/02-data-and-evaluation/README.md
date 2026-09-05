@@ -1,76 +1,87 @@
-# Week 2: Generalization and trustworthy evaluation
+# Data and evaluation — Weeks 2–3
 
-**Guiding question:** What evidence shows that a model will work on relevant unseen data?
+This module establishes the evidence standards used throughout CME705.
 
-Week 2 turns a fitted model into an evaluation claim. Students define what “unseen” means for an application, assign distinct roles to training, validation, and test data, choose a split that respects dependence between observations, prevent preprocessing leakage, and interpret a model relative to a baseline and an appropriate metric.
+| Week | Guiding question | Main product |
+| ---: | --- | --- |
+| 2 | What evidence shows that a model will work on relevant unseen data? | A leakage-aware evaluation protocol |
+| 3 | What must we learn about the data before comparing models? | A data audit and feasible problem proposal |
 
-The module continues in Week 3 with data quality, missingness, imbalance, feature quality, and model comparison.
+## Shared learning outcomes
 
-## Learning outcomes
+After completing the module, students should be able to:
 
-By the end of the week, students should be able to:
+- define the intended population and unit of observation;
+- create train, validation, and test partitions that respect groups and time;
+- fit preprocessing only on training data;
+- identify target, preprocessing, duplicate, group, and temporal leakage;
+- audit provenance, missingness, class balance, duplicates, labels, outliers, and feature availability;
+- select metrics and baselines that match the application;
+- compare candidates under one controlled evaluation protocol; and
+- document a reproducible dataset and experiment plan.
 
-- explain the difference between fitting the observed sample and generalizing to a target population;
-- state the separate roles of training, validation, and test partitions;
-- choose between random, stratified, grouped, and chronological splitting;
-- identify target leakage, preprocessing leakage, group leakage, and temporal leakage;
-- fit preprocessing parameters using training data only;
-- calculate accuracy, precision, recall, specificity, and balanced accuracy from a confusion matrix;
-- explain how a decision threshold changes errors without retraining the model; and
-- write a reproducible evaluation protocol before examining final test performance.
+## Week 2: Generalization and trustworthy evaluation
 
-## Week 2 materials
+Week 2 turns a fitted model into an evaluation claim. Students define what “unseen” means, give training, validation, and test data distinct roles, choose a split that respects dependence, prevent leakage, and interpret a score through a baseline and error costs.
 
 | Resource | Purpose |
 | --- | --- |
-| [Student notes](notes.md) | Generalization, split design, leakage, metrics, uncertainty, and reproducibility |
-| [Lecture source](slides.md) | Accessible text version of the lecture deck |
-| [PowerPoint lecture deck](slides/week02-generalization-and-evaluation.pptx) | Classroom presentation with speaker notes |
-| [Student worksheet](worksheet.md) | Split-design, leakage, metric, lab, and dataset-feasibility activities |
-| [Leakage-safe NumPy lab](../../labs/week02_evaluation_numpy.py) | Repeated-measurement example comparing row-wise and grouped evaluation |
-| [Instructor guide](../../instructor-notes/week02.md) | Three-hour lesson plan, prompts, expected evidence, and adaptations |
-| [Problem proposal](../../assignments/02-problem-proposal.md) | Week 3 milestone that uses the Week 2 evaluation protocol |
+| [Week 2 student notes](notes.md) | Generalization, split design, leakage, metrics, uncertainty, and reproducibility |
+| [Week 2 lecture source](slides.md) | Accessible text version of the lecture deck |
+| [Week 2 PowerPoint](slides/week02-generalization-and-evaluation.pptx) | Classroom presentation with speaker notes |
+| [Week 2 worksheet](worksheet.md) | Split-design, leakage, metric, lab, and dataset-feasibility activities |
+| [Week 2 NumPy lab](../../labs/week02_evaluation_numpy.py) | Row-wise and grouped evaluation of repeated measurements |
+| [Week 2 instructor guide](../../instructor-notes/week02.md) | Timed plan, prompts, expected evidence, and adaptations |
+
+## Week 3: Data quality and model comparison
+
+Week 3 treats a dataset as a measurement process rather than a clean matrix. Students create an audit, examine missingness and rare classes, test feature availability, compare models fairly, and convert the result into a feasible research proposal.
+
+| Resource | Purpose |
+| --- | --- |
+| [Week 3 student notes](week03-notes.md) | Data auditing, missingness, imbalance, feature quality, baselines, and comparison |
+| [Week 3 lecture source](week03-slides.md) | Accessible text version of the lecture deck |
+| [Week 3 PowerPoint](slides/week03-data-quality-and-model-comparison.pptx) | Classroom presentation with speaker notes |
+| [Week 3 worksheet](week03-worksheet.md) | Audit, missingness, imbalance, comparison, and proposal activities |
+| [Week 3 NumPy lab](../../labs/week03_data_quality_numpy.py) | Rare-event screening with training-only imputation |
+| [Week 3 instructor guide](../../instructor-notes/week03.md) | Timed plan, prompts, expected evidence, and adaptations |
+| [Problem proposal](../../assignments/02-problem-proposal.md) | Research question, dataset card draft, baseline, and evaluation plan |
 
 ## Preparation
 
-Before class, students should:
+For Week 2, review the Week 1 problem canvas and run:
 
-1. review the Week 1 problem-formulation canvas;
-2. run `python labs/week02_evaluation_numpy.py`;
-3. bring the name or URL of one dataset they might use for the research project; and
-4. read the linked scikit-learn guidance on common evaluation pitfalls.
+```bash
+python labs/week02_evaluation_numpy.py
+```
 
-The lab uses only NumPy and generated data. No external download is required.
+For Week 3, bring one candidate dataset and run:
 
-## Learning sequence
+```bash
+python labs/week03_data_quality_numpy.py
+```
 
-1. Evaluate the claim “the model achieved 95% accuracy.”
-2. Define the future cases the model is intended to handle.
-3. Assign training, validation, and test data distinct roles.
-4. Identify the independent sampling unit and possible dependencies.
-5. Select a split that simulates the intended use.
-6. Locate leakage in targets, features, preprocessing, groups, and time.
-7. Calculate several metrics from the same confusion matrix.
-8. Run the repeated-measurement lab and explain why two valid-looking splits disagree.
-9. Draft a dataset-specific evaluation protocol before model tuning.
+Both labs use generated data and NumPy. They require no external dataset.
 
-## Evidence of learning
+## Evidence across the module
 
-Students leave class with:
+Students produce:
 
-- a justified split strategy for one repeated-measurement problem;
-- a corrected leakage-prone workflow;
-- a completed metric calculation and interpretation;
-- an executed lab record comparing row-wise and grouped evaluation; and
-- a first feasibility screen for a possible research dataset.
+- a future-use claim and justified split;
+- corrected leakage-prone workflows;
+- a metric interpretation grounded in error cost;
+- a compact data-quality audit;
+- a controlled comparison table;
+- a dataset feasibility decision; and
+- the Week 3 problem proposal.
 
 ## Essential reading
 
-- [scikit-learn: common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html), sections on inconsistent preprocessing, data leakage, and randomness
-- [PyTorch reproducibility notes](https://docs.pytorch.org/docs/stable/notes/randomness.html), overview and sources of nondeterminism
-- [Datasheets for Datasets](https://doi.org/10.1145/3458723), abstract and motivation
-- [Course research-project brief](../../research-project/brief.md), especially the data and evaluation requirements
+- [scikit-learn: common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html)
+- [PyTorch reproducibility notes](https://docs.pytorch.org/docs/stable/notes/randomness.html)
+- [Datasheets for Datasets](https://doi.org/10.1145/3458723)
+- [Course research-project brief](../../research-project/brief.md)
 
-## A boundary on interpretation
+## Interpretation boundaries
 
-The synthetic lab intentionally makes repeated observations from the same source highly similar. Its purpose is to expose the direction of group leakage. The numerical gap is not an estimate of leakage in another dataset, and the example does not imply that grouped splitting is always correct. The split must follow the deployment question.
+The Week 2 lab exaggerates source similarity to make group leakage visible. The Week 3 lab creates a rare class and informative missingness so that metric and feature decisions become visible. Their numerical results belong to those simulations. Students must re-establish every assumption for a real dataset.

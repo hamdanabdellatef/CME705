@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- expanded Week 3 into a complete data-quality and controlled-comparison teaching package;
+- added a tested NumPy lab for rare classes, training-only imputation, and missingness indicators;
+- expanded the problem proposal with a dataset card, evaluation protocol, feasibility test, and rubric;
 - expanded Week 2 into a complete teaching package with notes, slides, a worksheet, and an instructor guide;
 - upgraded the evaluation lab to demonstrate row-wise group leakage against a disjoint grouped split;
 - added a reproducible dataset-feasibility activity connected to the Week 3 proposal;

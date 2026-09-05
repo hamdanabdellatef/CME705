@@ -13,6 +13,14 @@ from labs.week02_evaluation_numpy import (
     overlapping_group_count,
     random_row_split,
 )
+from labs.week03_data_quality_numpy import (
+    apply_median_imputer,
+    evaluate_logistic_candidate,
+    fit_median_imputer,
+    make_rare_event_data,
+    majority_baseline as week03_majority_baseline,
+    stratified_split,
+)
 from labs.week05_gradient_descent import iter_minibatches
 from labs.week06_mlp_numpy import train_xor
 from labs.week07_softmax_numpy import cross_entropy, softmax
@@ -53,6 +61,41 @@ def test_week02_row_split_exposes_group_leakage_in_teaching_data():
     assert overlapping_group_count(groups, row_split[0], row_split[2]) > 0
     assert overlapping_group_count(groups, group_split[0], group_split[2]) == 0
     assert row_score > group_score + 0.25
+
+
+def test_week03_pipeline_exposes_imbalance_and_compares_one_feature_change():
+    features, target = make_rare_event_data(seed=705)
+    split = stratified_split(target, seed=705)
+    train, validation, test = split
+
+    assert set(train).isdisjoint(validation)
+    assert set(train).isdisjoint(test)
+    assert set(validation).isdisjoint(test)
+    assert len(np.concatenate(split)) == len(target)
+    assert all(abs(target[index].mean() - target.mean()) < 0.01 for index in split)
+
+    medians = fit_median_imputer(features[train])
+    assert np.allclose(medians, np.nanmedian(features[train], axis=0))
+    assert not np.isnan(apply_median_imputer(features[test], medians)).any()
+
+    baseline = week03_majority_baseline(target[train], target[test])
+    imputed = evaluate_logistic_candidate(
+        features,
+        target,
+        split,
+        use_missing_indicator=False,
+    )
+    with_indicator = evaluate_logistic_candidate(
+        features,
+        target,
+        split,
+        use_missing_indicator=True,
+    )
+
+    assert baseline.recall == 0.0
+    assert baseline.accuracy > with_indicator.accuracy
+    assert with_indicator.balanced_accuracy > baseline.balanced_accuracy + 0.25
+    assert with_indicator.balanced_accuracy > imputed.balanced_accuracy + 0.05
 
 
 def test_minibatches_cover_each_example_once_for_divisible_and_remainder_sizes():

@@ -6,7 +6,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | ---: | --- | --- | --- |
 | 1 | [Course purpose and ML foundations](modules/01-ml-foundations/README.md) | [Python/NumPy diagnostic](labs/week01_python_numpy_diagnostic.py) | [Research-interest memo](assignments/01-research-interest.md) |
 | 2 | [Generalization and evaluation](modules/02-data-and-evaluation/README.md) | [Leakage-safe evaluation](labs/week02_evaluation_numpy.py) | Identify a feasible dataset |
-| 3 | [Data quality and model comparison](modules/02-data-and-evaluation/README.md) | Missingness, imbalance, features, and baselines | [Problem proposal](assignments/02-problem-proposal.md) |
+| 3 | [Data quality and model comparison](modules/02-data-and-evaluation/README.md) | [Rare-event data-quality audit](labs/week03_data_quality_numpy.py) | [Problem proposal](assignments/02-problem-proposal.md) |
 | 4 | [Neural-network computation](modules/03-neural-network-basics/README.md) | Activations, outputs, and NumPy operations | [Literature comparison](assignments/03-literature-comparison.md) |
 | 5 | [Gradient-based optimization](modules/04-optimization/README.md) | [Mini-batch gradient descent](labs/week05_gradient_descent.py) | Baseline experiment plan |
 | 6 | [Backpropagation and losses](modules/05-backpropagation/README.md) | [NumPy XOR network](labs/week06_mlp_numpy.py) | Working baseline and reproducible setup |
