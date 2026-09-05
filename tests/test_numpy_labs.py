@@ -6,7 +6,13 @@ from labs.week01_python_numpy_diagnostic import (
     make_machine_data,
     majority_baseline,
 )
-from labs.week02_evaluation_numpy import grouped_split
+from labs.week02_evaluation_numpy import (
+    evaluate_split,
+    grouped_split,
+    make_repeated_measurement_data,
+    overlapping_group_count,
+    random_row_split,
+)
 from labs.week05_gradient_descent import iter_minibatches
 from labs.week06_mlp_numpy import train_xor
 from labs.week07_softmax_numpy import cross_entropy, softmax
@@ -26,7 +32,6 @@ def test_week01_rule_beats_the_baseline_on_its_teaching_data():
     assert accuracy(target, prediction) > accuracy(target, baseline) + 0.15
 
 
-
 def test_grouped_split_keeps_subjects_disjoint():
     groups = np.repeat(np.arange(30), 3)
     train, validation, test = grouped_split(groups, seed=1)
@@ -35,6 +40,19 @@ def test_grouped_split_keeps_subjects_disjoint():
     assert partitions[0].isdisjoint(partitions[1])
     assert partitions[0].isdisjoint(partitions[2])
     assert partitions[1].isdisjoint(partitions[2])
+
+
+def test_week02_row_split_exposes_group_leakage_in_teaching_data():
+    features, target, groups = make_repeated_measurement_data(seed=705)
+    row_split = random_row_split(len(target), seed=705)
+    group_split = grouped_split(groups, seed=705)
+
+    row_score = evaluate_split(features, target, *row_split)[1]
+    group_score = evaluate_split(features, target, *group_split)[1]
+
+    assert overlapping_group_count(groups, row_split[0], row_split[2]) > 0
+    assert overlapping_group_count(groups, group_split[0], group_split[2]) == 0
+    assert row_score > group_score + 0.25
 
 
 def test_minibatches_cover_each_example_once_for_divisible_and_remainder_sizes():
@@ -51,7 +69,6 @@ def test_numpy_network_learns_xor():
     prediction, loss = train_xor()
     assert np.array_equal((prediction.ravel() >= 0.5).astype(int), [0, 1, 1, 0])
     assert loss < 0.02
-
 
 
 def test_softmax_is_stable_and_normalized():

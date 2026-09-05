@@ -11,3 +11,5 @@ Student submissions, grades, attendance, and identifying records are excluded. A
 ## Original generated assets
 
 - `modules/01-ml-foundations/assets/week01-cover.png`: original abstract course-cover illustration generated with OpenAI image generation on 5 September 2026. The prompt requested observations becoming a learned decision boundary in a restrained navy, teal, cyan, and amber academic style, with no text, logos, people, or watermark.
+
+- `modules/02-data-and-evaluation/assets/week02-cover.png`: original abstract course-cover illustration generated with OpenAI image generation on 5 September 2026. The prompt requested grouped observations, three evaluation partitions, and a boundary representing unseen data in the established navy, teal, cyan, and amber course style, with no text, logos, people, or watermark.
