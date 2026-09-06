@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- expanded Week 4 into a complete neural-network computation teaching package;
+- added a tested NumPy forward pass covering shapes, output probabilities, parameter counting, and affine-layer collapse;
+- expanded the literature comparison with reproducible search, comparability analysis, baseline selection, and a rubric;
 - expanded Week 3 into a complete data-quality and controlled-comparison teaching package;
 - added a tested NumPy lab for rare classes, training-only imputation, and missingness indicators;
 - expanded the problem proposal with a dataset card, evaluation protocol, feasibility test, and rubric;

@@ -21,6 +21,15 @@ from labs.week03_data_quality_numpy import (
     majority_baseline as week03_majority_baseline,
     stratified_split,
 )
+from labs.week04_forward_pass_numpy import (
+    affine,
+    collapse_linear_layers,
+    forward_two_layer,
+    neuron_output,
+    parameter_count,
+    sigmoid,
+    teaching_parameters,
+)
 from labs.week05_gradient_descent import iter_minibatches
 from labs.week06_mlp_numpy import train_xor
 from labs.week07_softmax_numpy import cross_entropy, softmax
@@ -96,6 +105,39 @@ def test_week03_pipeline_exposes_imbalance_and_compares_one_feature_change():
     assert baseline.accuracy > with_indicator.accuracy
     assert with_indicator.balanced_accuracy > baseline.balanced_accuracy + 0.25
     assert with_indicator.balanced_accuracy > imputed.balanced_accuracy + 0.05
+
+
+def test_week04_forward_pass_shapes_probabilities_and_affine_collapse():
+    example_x = np.array([2.0, -1.0, 0.5])
+    example_w = np.array([0.4, -0.8, 1.2])
+    pre_activation, activated = neuron_output(
+        example_x,
+        example_w,
+        -0.3,
+        sigmoid,
+    )
+    assert np.isclose(pre_activation, 1.9)
+    assert np.isclose(activated, 0.8698915256)
+
+    features, w1, b1, w2, b2 = teaching_parameters()
+    hidden_pre, hidden, logits, probability = forward_two_layer(
+        features,
+        w1,
+        b1,
+        w2,
+        b2,
+    )
+    assert hidden_pre.shape == hidden.shape == (4, 4)
+    assert logits.shape == probability.shape == (4, 2)
+    assert np.isfinite(probability).all()
+    assert (probability >= 0).all()
+    assert np.allclose(probability.sum(axis=1), 1.0)
+    assert parameter_count([w1, w2], [b1, b2]) == 26
+
+    equivalent_weight, equivalent_bias = collapse_linear_layers(w1, b1, w2, b2)
+    stacked = affine(affine(features, w1, b1), w2, b2)
+    collapsed = affine(features, equivalent_weight, equivalent_bias)
+    assert np.max(np.abs(stacked - collapsed)) < 1e-12
 
 
 def test_minibatches_cover_each_example_once_for_divisible_and_remainder_sizes():

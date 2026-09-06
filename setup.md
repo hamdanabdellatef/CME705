@@ -39,6 +39,7 @@ python -m pytest
 python labs/week01_python_numpy_diagnostic.py
 python labs/week02_evaluation_numpy.py
 python labs/week03_data_quality_numpy.py
+python labs/week04_forward_pass_numpy.py
 python labs/week05_gradient_descent.py
 python labs/week06_mlp_numpy.py
 python labs/week07_softmax_numpy.py
