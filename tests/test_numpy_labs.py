@@ -30,7 +30,16 @@ from labs.week04_forward_pass_numpy import (
     sigmoid,
     teaching_parameters,
 )
-from labs.week05_gradient_descent import iter_minibatches
+from labs.week05_gradient_descent import (
+    apply_standardizer,
+    fit_standardizer,
+    iter_minibatches,
+    linear_gradients,
+    make_regression_data,
+    mean_squared_error,
+    select_learning_rate,
+    split_indices,
+)
 from labs.week06_mlp_numpy import train_xor
 from labs.week07_softmax_numpy import cross_entropy, softmax
 from labs.week08_dropout_numpy import inverted_dropout, sigmoid_dropout_backward
@@ -148,6 +157,63 @@ def test_minibatches_cover_each_example_once_for_divisible_and_remainder_sizes()
         indices = np.concatenate([index for _, _, index in batches])
         assert all(len(xb) > 0 for xb, _, _ in batches)
         assert sorted(indices.tolist()) == list(range(size))
+
+
+def test_week05_analytical_gradients_match_finite_differences():
+    x = np.array([[0.2, -1.0], [1.5, 0.4], [-0.7, 2.0]])
+    y = np.array([0.5, 1.4, -0.8])
+    weights = np.array([0.3, -0.2])
+    bias = 0.1
+    gradient_weights, gradient_bias = linear_gradients(x, y, weights, bias)
+    epsilon = 1e-6
+
+    numerical_weights = np.empty_like(weights)
+    for index in range(len(weights)):
+        plus = weights.copy()
+        minus = weights.copy()
+        plus[index] += epsilon
+        minus[index] -= epsilon
+        numerical_weights[index] = (
+            mean_squared_error(x, y, plus, bias)
+            - mean_squared_error(x, y, minus, bias)
+        ) / (2 * epsilon)
+    numerical_bias = (
+        mean_squared_error(x, y, weights, bias + epsilon)
+        - mean_squared_error(x, y, weights, bias - epsilon)
+    ) / (2 * epsilon)
+
+    assert np.allclose(gradient_weights, numerical_weights, atol=1e-6)
+    assert np.isclose(gradient_bias, numerical_bias, atol=1e-6)
+
+
+def test_week05_validation_selects_a_stable_learning_rate_before_test_use():
+    features, target = make_regression_data()
+    train, validation, test = split_indices(len(target))
+    assert set(train).isdisjoint(validation)
+    assert set(train).isdisjoint(test)
+    assert set(validation).isdisjoint(test)
+
+    mean, scale = fit_standardizer(features[train])
+    x_train = apply_standardizer(features[train], mean, scale)
+    x_validation = apply_standardizer(features[validation], mean, scale)
+    x_test = apply_standardizer(features[test], mean, scale)
+    selected, validation_loss, results = select_learning_rate(
+        x_train,
+        target[train],
+        x_validation,
+        target[validation],
+        (0.001, 0.01, 0.05, 0.2, 1.2),
+    )
+
+    assert results[0.05].train_loss[-1] < results[0.05].train_loss[0] * 0.02
+    assert results[1.2].diverged or validation_loss[1.2] > validation_loss[0.05] * 10
+    assert selected in (0.01, 0.05, 0.2)
+    assert mean_squared_error(
+        x_test,
+        target[test],
+        results[selected].weights,
+        results[selected].bias,
+    ) < 0.12
 
 
 def test_numpy_network_learns_xor():

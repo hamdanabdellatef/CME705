@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- expanded Week 5 into a complete gradient-based optimization teaching package;
+- added a tested NumPy lab for exact MSE gradients, update schedules, validation-controlled learning-rate selection, and a final test result;
+- added a baseline experiment plan that freezes splits, preprocessing, objectives, metrics, stopping rules, and expected evidence;
+
 - expanded Week 4 into a complete neural-network computation teaching package;
 - added a tested NumPy forward pass covering shapes, output probabilities, parameter counting, and affine-layer collapse;
 - expanded the literature comparison with reproducible search, comparability analysis, baseline selection, and a rubric;
