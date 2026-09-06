@@ -40,7 +40,14 @@ from labs.week05_gradient_descent import (
     select_learning_rate,
     split_indices,
 )
-from labs.week06_mlp_numpy import train_xor
+from labs.week06_mlp_numpy import (
+    classification_accuracy as week06_accuracy,
+    gradient_check,
+    initialize_parameters,
+    train_linear_xor,
+    train_xor,
+    xor_data,
+)
 from labs.week07_softmax_numpy import cross_entropy, softmax
 from labs.week08_dropout_numpy import inverted_dropout, sigmoid_dropout_backward
 
@@ -216,10 +223,24 @@ def test_week05_validation_selects_a_stable_learning_rate_before_test_use():
     ) < 0.12
 
 
-def test_numpy_network_learns_xor():
-    prediction, loss = train_xor()
-    assert np.array_equal((prediction.ravel() >= 0.5).astype(int), [0, 1, 1, 0])
-    assert loss < 0.02
+def test_week06_backpropagation_gradients_and_xor_behavior():
+    features, target = xor_data()
+    parameters = initialize_parameters()
+    maximum_error, per_parameter = gradient_check(
+        features, target, parameters
+    )
+    assert maximum_error < 1e-6
+    assert set(per_parameter) == {"w1", "b1", "w2", "b2"}
+
+    linear_prediction, linear_loss = train_linear_xor()
+    nonlinear_prediction, nonlinear_loss = train_xor()
+    assert week06_accuracy(target, linear_prediction) == 0.5
+    assert np.isclose(linear_loss, np.log(2.0))
+    assert np.array_equal(
+        (nonlinear_prediction.ravel() >= 0.5).astype(int),
+        [0, 1, 1, 0],
+    )
+    assert nonlinear_loss < 0.002
 
 
 def test_softmax_is_stable_and_normalized():

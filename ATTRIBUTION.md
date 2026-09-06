@@ -20,3 +20,5 @@ Student submissions, grades, attendance, and identifying records are excluded. A
 - `modules/03-neural-network-basics/assets/week04-nonlinearity.png`: original teaching illustration generated with OpenAI image generation on 5 September 2026. The prompt requested inseparable observations transformed into a representation where a final boundary separates the groups, with no text.
 
 - `modules/04-optimization/assets/week05-cover.png`: original gradient-based optimization cover generated with OpenAI image generation on 6 September 2026. The prompt requested a loss landscape with descending paths and mini-batch variation in the established navy, teal, cyan, off-white, and amber course style, with no text, equations, labels, people, robots, brains, logos, or watermark.
+
+- `modules/05-backpropagation/assets/week06-cover.png`: original backpropagation cover generated with OpenAI image generation on 6 September 2026. The prompt requested a multilayer network with cyan forward flow and amber backward gradient flow in the established navy, teal, cyan, off-white, and amber course style, with no text, equations, people, brains, robots, logos, or watermark.

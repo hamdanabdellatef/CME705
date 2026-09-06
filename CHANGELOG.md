@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- expanded Week 6 into a complete backpropagation and binary-loss teaching package;
+- added a tested NumPy MLP with explicit forward caches, analytical gradients, all-parameter finite-difference checking, and a linear-versus-nonlinear XOR comparison;
+- added a reproducible-baseline milestone covering repository state, environment, data identity, actual configuration, split-specific results, and first error analysis;
+
 - expanded Week 5 into a complete gradient-based optimization teaching package;
 - added a tested NumPy lab for exact MSE gradients, update schedules, validation-controlled learning-rate selection, and a final test result;
 - added a baseline experiment plan that freezes splits, preprocessing, objectives, metrics, stopping rules, and expected evidence;

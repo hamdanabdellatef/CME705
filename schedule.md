@@ -9,7 +9,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | 3 | [Data quality and model comparison](modules/02-data-and-evaluation/README.md) | [Rare-event data-quality audit](labs/week03_data_quality_numpy.py) | [Problem proposal](assignments/02-problem-proposal.md) |
 | 4 | [Neural-network computation](modules/03-neural-network-basics/README.md) | [NumPy forward pass](labs/week04_forward_pass_numpy.py) | [Literature comparison](assignments/03-literature-comparison.md) |
 | 5 | [Gradient-based optimization](modules/04-optimization/README.md) | [Mini-batch gradient descent](labs/week05_gradient_descent.py) | [Baseline experiment plan](research-project/baseline-experiment-plan.md) |
-| 6 | [Backpropagation and losses](modules/05-backpropagation/README.md) | [NumPy XOR network](labs/week06_mlp_numpy.py) | Working baseline and reproducible setup |
+| 6 | [Backpropagation and losses](modules/05-backpropagation/README.md) | [NumPy XOR network](labs/week06_mlp_numpy.py) | [Reproducible baseline](research-project/reproducible-baseline.md) |
 | 7 | [Multiclass learning and consolidation](modules/06-multiclass-and-generalization/README.md) | [Stable softmax and cross-entropy](labs/week07_softmax_numpy.py); midterm review | Metric and split justification |
 | 8 | [Deep networks and generalization](modules/06-multiclass-and-generalization/README.md) | [Correct dropout mechanics](labs/week08_dropout_numpy.py) | [Controlled experiment](assignments/04-controlled-experiment.md) |
 | 9 | [Convolutional networks](modules/07-convolutional-networks/README.md) | Convolution, pooling, and architecture reasoning | Method-choice review |

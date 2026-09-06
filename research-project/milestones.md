@@ -7,7 +7,7 @@
 | 3 | Problem proposal | Research question, feasibility, risks, baseline, and intended metric |
 | 4 | Literature comparison | At least five sources and a structured comparison |
 | 5 | [Baseline experiment plan](baseline-experiment-plan.md) | Frozen split plan, baseline, controlled variable, and expected outputs |
-| 6 | Reproducible baseline | Environment, command, seed, result, and first error analysis |
+| 6 | [Reproducible baseline](reproducible-baseline.md) | Environment, command, seed, result, and first error analysis |
 | 7 | Evaluation review | Metric and validation justification; leakage check |
 | 8 | Controlled comparison | One change, repeated or otherwise uncertainty-aware results |
 | 9 | Method review | Model rationale and complexity relative to the data |
