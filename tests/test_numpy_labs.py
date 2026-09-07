@@ -61,7 +61,13 @@ from labs.week07_softmax_numpy import (
     softmax,
     stratified_split as week07_stratified_split,
 )
-from labs.week08_dropout_numpy import inverted_dropout, sigmoid_dropout_backward
+from labs.week08_dropout_numpy import (
+    inverted_dropout,
+    relu,
+    relu_backward,
+    run_controlled_comparison,
+    sigmoid_dropout_backward,
+)
 
 
 def test_week01_rule_beats_the_baseline_on_its_teaching_data():
@@ -314,10 +320,51 @@ def test_week07_softmax_gradients_selection_and_class_aware_evaluation():
     assert np.array_equal(report.confusion.sum(axis=1), [30, 18, 12])
 
 
-def test_inverted_dropout_preserves_expectation_and_backward_mask():
+def test_week08_dropout_mechanics_and_controlled_generalization_comparison():
     activation = np.full(200_000, 0.8)
-    dropped, mask = inverted_dropout(activation, 0.2, np.random.default_rng(1), training=True)
-    gradient = sigmoid_dropout_backward(activation, np.ones_like(activation), mask)
+    dropped, mask = inverted_dropout(
+        activation,
+        0.2,
+        np.random.default_rng(1),
+        training=True,
+    )
+    evaluation, evaluation_mask = inverted_dropout(
+        activation,
+        0.2,
+        np.random.default_rng(2),
+        training=False,
+    )
+    gradient = sigmoid_dropout_backward(
+        activation, np.ones_like(activation), mask
+    )
     assert np.isclose(dropped.mean(), activation.mean(), atol=0.005)
     assert np.isclose(gradient.mean(), 0.16, atol=0.005)
     assert np.all(gradient[mask == 0] == 0)
+    assert np.array_equal(evaluation, activation)
+    assert np.all(evaluation_mask == 1.0)
+
+    pre_activation = np.array([[-1.0, 0.0, 2.0]])
+    upstream = np.array([[3.0, 4.0, 5.0]])
+    assert np.array_equal(relu(pre_activation), [[0.0, 0.0, 2.0]])
+    assert np.array_equal(
+        relu_backward(pre_activation, upstream),
+        [[0.0, 0.0, 5.0]],
+    )
+
+    data, runs, selected, reference_test, selected_test = (
+        run_controlled_comparison()
+    )
+    assert len(data.flipped_training_labels) == 19
+    assert selected == min(
+        runs,
+        key=lambda rate: runs[rate].best_validation_loss,
+    )
+    assert selected == 0.45
+    assert runs[selected].best_validation_loss < (
+        runs[0.0].best_validation_loss - 0.10
+    )
+    assert all(run.best_epoch < run.stopped_epoch for run in runs.values())
+    assert selected_test.accuracy > reference_test.accuracy + 0.05
+    assert selected_test.negative_recall > 0.60
+    assert selected_test.positive_recall > 0.75
+    assert selected_test.confusion.sum() == len(data.test_y)

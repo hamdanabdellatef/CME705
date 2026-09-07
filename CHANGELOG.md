@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- expanded Week 8 into a complete deep-networks and generalization package with ReLU, learning-curve diagnosis, $L_2$ regularization, early stopping, and correct inverted dropout;
+- added a tested NumPy experiment that holds data, architecture, initialization, optimizer, and selection rules fixed while comparing dropout probabilities;
+- expanded the controlled-experiment assignment with a directional hypothesis, fixed controls, uncertainty, class-aware evidence, implementation checks, claim limits, and a rubric;
+
 - expanded Week 7 into a complete stable multiclass learning, class-aware evaluation, and course-consolidation package;
 - added a tested NumPy linear-softmax lab with stable log probabilities, equivalent target encodings, analytical and numerical gradients, validation-controlled selection, and a locked test evaluation;
 - added an evaluation-review milestone covering task semantics, split roles, leakage, metric specification, class or subgroup evidence, selection history, and test status;

@@ -82,3 +82,14 @@ The lab establishes numerical stability for the checked extreme logits, agreemen
 - [PyTorch CrossEntropyLoss documentation](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)
 
 Use these sources to clarify mechanisms. Project evidence must still document the dataset, split, metric, command, actual result, and limitations.
+## Week 8 continuation
+
+Continue with [Week 8: Deep networks and generalization](week08.md). Its separate teaching package adds ReLU and depth, learning-curve diagnosis, $L_2$ regularization, early stopping, correct inverted dropout, and a controlled validation comparison.
+
+- [Week 8 concept notes](week08-notes.md)
+- [Week 8 accessible slide text](week08-slides.md)
+- [Week 8 PowerPoint lecture deck](slides/week08-deep-networks-and-generalization.pptx)
+- [Week 8 student worksheet](week08-worksheet.md)
+- [Week 8 NumPy lab](../../labs/week08_dropout_numpy.py)
+- [Week 8 instructor guide](../../instructor-notes/week08.md)
+- [Controlled-experiment assignment](../../assignments/04-controlled-experiment.md)
