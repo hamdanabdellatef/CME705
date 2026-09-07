@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- expanded Week 9 into a complete convolutional-networks and spatial-structure package;
+- added a tested NumPy lab for cross-correlation, output geometry, multi-channel shapes, weight sharing, pooling, receptive fields, translation equivariance, and shared-kernel gradients;
+- added a method-choice review linking model inductive bias, tensor shapes, capacity, augmentation validity, feasibility, and evaluation design;
+
 - expanded Week 8 into a complete deep-networks and generalization package with ReLU, learning-curve diagnosis, $L_2$ regularization, early stopping, and correct inverted dropout;
 - added a tested NumPy experiment that holds data, architecture, initialization, optimizer, and selection rules fixed while comparing dropout probabilities;
 - expanded the controlled-experiment assignment with a directional hypothesis, fixed controls, uncertainty, class-aware evidence, implementation checks, claim limits, and a rubric;

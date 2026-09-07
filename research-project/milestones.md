@@ -10,7 +10,7 @@
 | 6 | [Reproducible baseline](reproducible-baseline.md) | Environment, command, seed, result, and first error analysis |
 | 7 | [Evaluation review](evaluation-review.md) | Metric and validation justification; leakage check |
 | 8 | [Controlled comparison](../assignments/04-controlled-experiment.md) | One change, repeated or otherwise uncertainty-aware results |
-| 9 | Method review | Model rationale and complexity relative to the data |
+| 9 | [Method review](method-choice-review.md) | Model rationale and complexity relative to the data |
 | 10 | Results review | Tables/figures generated from recorded results |
 | 11 | Specialization reading | One source that may change the next experiment |
 | 12 | Ablation or robustness result | Evidence about a component, subgroup, perturbation, or assumption |

@@ -12,6 +12,7 @@ The first release contains compact scripts with generated data. They expose the 
 | 6 | [`week06_mlp_numpy.py`](week06_mlp_numpy.py) | Explicit caches and gradients pass a finite-difference check; a nonlinear MLP learns XOR while a linear unit does not |
 | 7 | [`week07_softmax_numpy.py`](week07_softmax_numpy.py) | Stable softmax, equivalent target encodings, checked gradients, validation selection, and class-aware test evidence |
 | 8 | [`week08_dropout_numpy.py`](week08_dropout_numpy.py) | ReLU and saved-mask dropout mechanics, validation-controlled early stopping, and a one-factor generalization comparison |
+| 9 | [`week09_convolution_numpy.py`](week09_convolution_numpy.py) | Patch arithmetic, NCHW/OIHW shapes, shared parameters, pooling, receptive fields, translation equivariance, and a checked kernel gradient |
 | 10 | [`week10_cnn_pytorch.py`](week10_cnn_pytorch.py) | CNN maps image batches to class logits and trains one step |
 | 11 | [`week11_sequence_pytorch.py`](week11_sequence_pytorch.py) | LSTM maps variable sequences to class logits |
 | 12 | [`week12_autoencoder_pytorch.py`](week12_autoencoder_pytorch.py) | Autoencoder reconstructs vectors through a latent representation |

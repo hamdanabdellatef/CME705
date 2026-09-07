@@ -12,7 +12,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | 6 | [Backpropagation and losses](modules/05-backpropagation/README.md) | [NumPy XOR network](labs/week06_mlp_numpy.py) | [Reproducible baseline](research-project/reproducible-baseline.md) |
 | 7 | [Multiclass learning and consolidation](modules/06-multiclass-and-generalization/README.md) | [Stable softmax and cross-entropy](labs/week07_softmax_numpy.py); midterm review | [Evaluation review](research-project/evaluation-review.md) |
 | 8 | [Deep networks and generalization](modules/06-multiclass-and-generalization/week08.md) | [Correct dropout mechanics](labs/week08_dropout_numpy.py) | [Controlled experiment](assignments/04-controlled-experiment.md) |
-| 9 | [Convolutional networks](modules/07-convolutional-networks/README.md) | Convolution, pooling, and architecture reasoning | Method-choice review |
+| 9 | [Convolutional networks and spatial structure](modules/07-convolutional-networks/week09.md) | [NumPy convolution mechanics](labs/week09_convolution_numpy.py) | [Method-choice review](research-project/method-choice-review.md) |
 | 10 | [CNN implementation and inspection](modules/07-convolutional-networks/README.md) | [PyTorch CNN](labs/week10_cnn_pytorch.py) | Results and error analysis |
 | 11 | [Sequence models](modules/08-sequence-models/README.md) | [PyTorch LSTM classifier](labs/week11_sequence_pytorch.py) | Optional specialization reading |
 | 12 | [Autoencoders and generative models](modules/09-generative-models/README.md) | [PyTorch autoencoder](labs/week12_autoencoder_pytorch.py) | Ablation or robustness experiment |

@@ -1,5 +1,17 @@
 import numpy as np
 
+from labs.week09_convolution_numpy import (
+    average_pool2d,
+    cross_correlation2d,
+    interior_equivariance_error,
+    kernel_gradient_check as week09_kernel_gradient_check,
+    max_pool2d,
+    output_size as week09_output_size,
+    parameter_comparison,
+    receptive_field_schedule,
+    teaching_edge_example,
+)
+
 from labs.week01_python_numpy_diagnostic import (
     accuracy,
     inspection_rule,
@@ -368,3 +380,57 @@ def test_week08_dropout_mechanics_and_controlled_generalization_comparison():
     assert selected_test.negative_recall > 0.60
     assert selected_test.positive_recall > 0.75
     assert selected_test.confusion.sum() == len(data.test_y)
+
+def test_week09_convolution_shapes_sharing_gradients_and_spatial_behavior():
+    patch = np.array(
+        [[[[1.0, 2.0, 0.0],
+           [0.0, 1.0, 3.0],
+           [2.0, 1.0, 0.0]]]]
+    )
+    kernel = np.array([[[[1.0, 0.0], [-1.0, 2.0]]]])
+    output = cross_correlation2d(patch, kernel)
+    assert np.array_equal(output[0, 0], [[3.0, 7.0], [0.0, 0.0]])
+    assert week09_output_size(8, 3, stride=2, padding=1) == 4
+
+    multi_channel = cross_correlation2d(
+        np.zeros((2, 3, 8, 8)),
+        np.zeros((4, 3, 3, 3)),
+        stride=2,
+        padding=1,
+    )
+    assert multi_channel.shape == (2, 4, 4, 4)
+    assert week09_kernel_gradient_check() < 1e-6
+
+    pooling_input = np.array(
+        [[[[1.0, 3.0, 2.0, 0.0],
+           [4.0, 6.0, 5.0, 1.0],
+           [0.0, 2.0, 8.0, 7.0],
+           [1.0, 3.0, 9.0, 4.0]]]]
+    )
+    assert np.array_equal(
+        max_pool2d(pooling_input)[0, 0],
+        [[6.0, 5.0], [3.0, 9.0]],
+    )
+    assert np.allclose(
+        average_pool2d(pooling_input)[0, 0],
+        [[3.5, 2.0], [1.5, 7.0]],
+    )
+
+    counts = parameter_comparison(
+        (3, 8, 8), 4, 3, stride=2, padding=1
+    )
+    assert counts.convolution == 112
+    assert counts.locally_connected == 1792
+    assert counts.dense == 12352
+    assert counts.sharing_ratio == 16.0
+
+    image, edge_kernel, response = teaching_edge_example()
+    assert response.shape == (1, 1, 5, 5)
+    assert response.max() == 3.0
+    assert interior_equivariance_error(image, edge_kernel) == 0.0
+
+    schedule = receptive_field_schedule(
+        (("conv3", 3, 1), ("pool2", 2, 2), ("conv3", 3, 1))
+    )
+    assert [step.receptive_field for step in schedule] == [3, 4, 8]
+    assert [step.jump for step in schedule] == [1, 2, 2]
