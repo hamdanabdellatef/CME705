@@ -10,7 +10,7 @@ The first release contains compact scripts with generated data. They expose the 
 | 4 | [`week04_forward_pass_numpy.py`](week04_forward_pass_numpy.py) | Layer shapes, probability normalization, parameter count, and affine-layer collapse |
 | 5 | [`week05_gradient_descent.py`](week05_gradient_descent.py) | Exact MSE gradients, update-schedule comparison, learning-rate selection, and one final test result |
 | 6 | [`week06_mlp_numpy.py`](week06_mlp_numpy.py) | Explicit caches and gradients pass a finite-difference check; a nonlinear MLP learns XOR while a linear unit does not |
-| 7 | [`week07_softmax_numpy.py`](week07_softmax_numpy.py) | Stable softmax produces normalized probabilities for extreme logits |
+| 7 | [`week07_softmax_numpy.py`](week07_softmax_numpy.py) | Stable softmax, equivalent target encodings, checked gradients, validation selection, and class-aware test evidence |
 | 8 | [`week08_dropout_numpy.py`](week08_dropout_numpy.py) | Inverted dropout has correct expectation and backward mask |
 | 10 | [`week10_cnn_pytorch.py`](week10_cnn_pytorch.py) | CNN maps image batches to class logits and trains one step |
 | 11 | [`week11_sequence_pytorch.py`](week11_sequence_pytorch.py) | LSTM maps variable sequences to class logits |

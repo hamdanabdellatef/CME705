@@ -48,7 +48,19 @@ from labs.week06_mlp_numpy import (
     train_xor,
     xor_data,
 )
-from labs.week07_softmax_numpy import cross_entropy, softmax
+from labs.week07_softmax_numpy import (
+    apply_standardizer as week07_apply_standardizer,
+    classification_report as week07_classification_report,
+    cross_entropy,
+    cross_entropy_one_hot,
+    fit_standardizer as week07_fit_standardizer,
+    gradient_check as week07_gradient_check,
+    make_multiclass_data,
+    one_hot,
+    select_learning_rate as week07_select_learning_rate,
+    softmax,
+    stratified_split as week07_stratified_split,
+)
 from labs.week08_dropout_numpy import inverted_dropout, sigmoid_dropout_backward
 
 
@@ -243,12 +255,63 @@ def test_week06_backpropagation_gradients_and_xor_behavior():
     assert nonlinear_loss < 0.002
 
 
-def test_softmax_is_stable_and_normalized():
-    logits = np.array([[1002.0, 1001.0, 998.0], [-1000.0, -999.0, -1003.0]])
+def test_week07_softmax_gradients_selection_and_class_aware_evaluation():
+    logits = np.array(
+        [[1002.0, 1001.0, 998.0], [-1000.0, -999.0, -1003.0]]
+    )
+    class_index = np.array([0, 1])
     probability = softmax(logits)
     assert np.isfinite(probability).all()
     assert np.allclose(probability.sum(axis=1), 1.0)
-    assert cross_entropy(logits, np.array([0, 1])) > 0
+    assert np.allclose(
+        probability,
+        softmax(logits + np.array([[5000.0], [-3000.0]])),
+    )
+    assert np.isclose(
+        cross_entropy(logits, class_index),
+        cross_entropy_one_hot(logits, one_hot(class_index, 3)),
+    )
+
+    check_features = np.array(
+        [[0.2, -1.0], [1.5, 0.4], [-0.7, 2.0], [0.3, 0.8]]
+    )
+    check_target = np.array([0, 1, 2, 1])
+    check_weights = np.array(
+        [[0.2, -0.1, 0.3], [-0.4, 0.5, 0.1]]
+    )
+    check_bias = np.array([[0.1, -0.2, 0.05]])
+    maximum_error, errors = week07_gradient_check(
+        check_features, check_target, check_weights, check_bias
+    )
+    assert maximum_error < 1e-6
+    assert set(errors) == {"weights", "bias"}
+
+    features, target = make_multiclass_data()
+    split = week07_stratified_split(target)
+    assert set(split.train).isdisjoint(split.validation)
+    assert set(split.train).isdisjoint(split.test)
+    assert set(split.validation).isdisjoint(split.test)
+    assert np.array_equal(np.bincount(target[split.test]), [30, 18, 12])
+
+    mean, scale = week07_fit_standardizer(features[split.train])
+    standardized = week07_apply_standardizer(features, mean, scale)
+    candidates = (0.01, 0.05, 0.2, 0.8)
+    selected, models, validation_loss = week07_select_learning_rate(
+        standardized[split.train],
+        target[split.train],
+        standardized[split.validation],
+        target[split.validation],
+        candidates,
+    )
+    assert selected == min(candidates, key=validation_loss.__getitem__)
+    assert models[selected].loss_history[-1] < models[selected].loss_history[0]
+
+    report = week07_classification_report(
+        standardized[split.test], target[split.test], models[selected]
+    )
+    assert report.accuracy > 0.85
+    assert report.macro_recall > 0.85
+    assert np.array_equal(report.confusion.sum(axis=1), [30, 18, 12])
 
 
 def test_inverted_dropout_preserves_expectation_and_backward_mask():

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- expanded Week 7 into a complete stable multiclass learning, class-aware evaluation, and course-consolidation package;
+- added a tested NumPy linear-softmax lab with stable log probabilities, equivalent target encodings, analytical and numerical gradients, validation-controlled selection, and a locked test evaluation;
+- added an evaluation-review milestone covering task semantics, split roles, leakage, metric specification, class or subgroup evidence, selection history, and test status;
+
 - expanded Week 6 into a complete backpropagation and binary-loss teaching package;
 - added a tested NumPy MLP with explicit forward caches, analytical gradients, all-parameter finite-difference checking, and a linear-versus-nonlinear XOR comparison;
 - added a reproducible-baseline milestone covering repository state, environment, data identity, actual configuration, split-specific results, and first error analysis;

@@ -10,7 +10,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | 4 | [Neural-network computation](modules/03-neural-network-basics/README.md) | [NumPy forward pass](labs/week04_forward_pass_numpy.py) | [Literature comparison](assignments/03-literature-comparison.md) |
 | 5 | [Gradient-based optimization](modules/04-optimization/README.md) | [Mini-batch gradient descent](labs/week05_gradient_descent.py) | [Baseline experiment plan](research-project/baseline-experiment-plan.md) |
 | 6 | [Backpropagation and losses](modules/05-backpropagation/README.md) | [NumPy XOR network](labs/week06_mlp_numpy.py) | [Reproducible baseline](research-project/reproducible-baseline.md) |
-| 7 | [Multiclass learning and consolidation](modules/06-multiclass-and-generalization/README.md) | [Stable softmax and cross-entropy](labs/week07_softmax_numpy.py); midterm review | Metric and split justification |
+| 7 | [Multiclass learning and consolidation](modules/06-multiclass-and-generalization/README.md) | [Stable softmax and cross-entropy](labs/week07_softmax_numpy.py); midterm review | [Evaluation review](research-project/evaluation-review.md) |
 | 8 | [Deep networks and generalization](modules/06-multiclass-and-generalization/README.md) | [Correct dropout mechanics](labs/week08_dropout_numpy.py) | [Controlled experiment](assignments/04-controlled-experiment.md) |
 | 9 | [Convolutional networks](modules/07-convolutional-networks/README.md) | Convolution, pooling, and architecture reasoning | Method-choice review |
 | 10 | [CNN implementation and inspection](modules/07-convolutional-networks/README.md) | [PyTorch CNN](labs/week10_cnn_pytorch.py) | Results and error analysis |
