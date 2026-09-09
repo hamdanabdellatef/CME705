@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- expanded Week 10 into a complete PyTorch CNN implementation, training, and inspection package;
+- replaced the one-step CNN example with a TorchVision MNIST experiment covering deterministic stratified subsets, training-only normalization, automatic CUDA selection, tensor and parameter audits, persistent Adam state, validation checkpoint restoration, and locked digit-level testing;
+- added structured error records, gradient and activation inspection, a declared translation check, and a results-and-error-analysis research milestone;
+- added ImageNet-1K benchmark literacy with a dated CNN accuracy, parameter, and GFLOP comparison;
+- added a student transfer-learning reading and auditable ConvNeXt-Tiny example with frozen-head training, optional staged fine-tuning, and locked CIFAR-10 testing;
+
 - expanded Week 9 into a complete convolutional-networks and spatial-structure package;
 - added a tested NumPy lab for cross-correlation, output geometry, multi-channel shapes, weight sharing, pooling, receptive fields, translation equivariance, and shared-kernel gradients;
 - added a method-choice review linking model inductive bias, tensor shapes, capacity, augmentation validity, feasibility, and evaluation design;

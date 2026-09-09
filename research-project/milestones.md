@@ -11,7 +11,7 @@
 | 7 | [Evaluation review](evaluation-review.md) | Metric and validation justification; leakage check |
 | 8 | [Controlled comparison](../assignments/04-controlled-experiment.md) | One change, repeated or otherwise uncertainty-aware results |
 | 9 | [Method review](method-choice-review.md) | Model rationale and complexity relative to the data |
-| 10 | Results review | Tables/figures generated from recorded results |
+| 10 | [Results and error analysis](results-and-error-analysis.md) | Frozen configuration, selection history, locked results, structured errors, and one controlled check |
 | 11 | Specialization reading | One source that may change the next experiment |
 | 12 | Ablation or robustness result | Evidence about a component, subgroup, perturbation, or assumption |
 | 13 | Reproducibility review | Peer reproduction record and corrected instructions |

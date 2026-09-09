@@ -1,6 +1,6 @@
 # Labs
 
-The first release contains compact scripts with generated data. They expose the mechanism being taught and avoid hidden downloads.
+The first release contains compact, auditable scripts. Dataset-based labs declare their source, split protocol, download location, and locked-test rule.
 
 | Week | Example | Main evidence |
 | ---: | --- | --- |
@@ -13,8 +13,8 @@ The first release contains compact scripts with generated data. They expose the 
 | 7 | [`week07_softmax_numpy.py`](week07_softmax_numpy.py) | Stable softmax, equivalent target encodings, checked gradients, validation selection, and class-aware test evidence |
 | 8 | [`week08_dropout_numpy.py`](week08_dropout_numpy.py) | ReLU and saved-mask dropout mechanics, validation-controlled early stopping, and a one-factor generalization comparison |
 | 9 | [`week09_convolution_numpy.py`](week09_convolution_numpy.py) | Patch arithmetic, NCHW/OIHW shapes, shared parameters, pooling, receptive fields, translation equivariance, and a checked kernel gradient |
-| 10 | [`week10_cnn_pytorch.py`](week10_cnn_pytorch.py) | CNN maps image batches to class logits and trains one step |
+| 10 | [`week10_cnn_pytorch.py`](week10_cnn_pytorch.py) | TorchVision MNIST, deterministic stratified training/validation subsets, automatic CUDA use, exact shape and parameter audits, validation checkpointing, digit-level errors, gradients, activations, and translation checks |
 | 11 | [`week11_sequence_pytorch.py`](week11_sequence_pytorch.py) | LSTM maps variable sequences to class logits |
 | 12 | [`week12_autoencoder_pytorch.py`](week12_autoencoder_pytorch.py) | Autoencoder reconstructs vectors through a latent representation |
 
-Run scripts from the repository root. Dataset-based exercises will be added after their split and licensing instructions are reviewed.
+Run scripts from the repository root. Downloaded datasets and pretrained weights stay in ignored local data or cache directories and are not redistributed by this repository.
