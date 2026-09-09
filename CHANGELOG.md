@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- expanded Week 11 into a complete sequence-model package covering recurrent computation, backpropagation through time, LSTM gates, scaled dot-product attention, masking, multi-head attention, and Transformer encoder blocks;
+- added a controlled PyTorch RNN-versus-LSTM delayed-memory experiment with validation checkpointing, a locked longer-sequence stress test, gradient inspection, and an auditable attention implementation;
+- added a ModernBERT transfer-learning lab for balanced AG News topic classification with automatic CUDA selection, frozen-head training, optional staged unfreezing, locked testing, and class-aware error evidence;
+- added a common-protocol Long Range Arena comparison, a dated map of recent sequence architectures, primary-source further reading, and a benchmark-aligned research-direction milestone;
+
 - expanded Week 10 into a complete PyTorch CNN implementation, training, and inspection package;
 - replaced the one-step CNN example with a TorchVision MNIST experiment covering deterministic stratified subsets, training-only normalization, automatic CUDA selection, tensor and parameter audits, persistent Adam state, validation checkpoint restoration, and locked digit-level testing;
 - added structured error records, gradient and activation inspection, a declared translation check, and a results-and-error-analysis research milestone;

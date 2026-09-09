@@ -26,3 +26,9 @@ The first run downloads the files under `data/raw/MNIST/`. That directory is ign
 The optional Week 10 transfer-learning lab retrieves CIFAR-10 through [`torchvision.datasets.CIFAR10`](https://docs.pytorch.org/vision/0.21/generated/torchvision.datasets.CIFAR10.html). CIFAR-10 provides 50,000 official training images and 10,000 official test images across ten classes. The default extension derives 2,000 class-balanced training images and 1,000 validation images from the official training partition, while retaining the full official test partition for one final evaluation.
 
 Files are downloaded under `data/raw/` and ignored by Git. ImageNet-pretrained ConvNeXt-Tiny weights are stored in the user Torch cache. This repository redistributes neither dataset nor model weights. Consult the [original CIFAR-10 page](https://www.cs.toronto.edu/~kriz/cifar.html), the TorchVision weight documentation, and institutional requirements before redistribution.
+
+## AG News for Week 11
+
+The Week 11 ModernBERT lab retrieves fancyzhx/ag_news through the Hugging Face Datasets library. The dataset card exposes 120,000 official training rows and 7,600 official test rows across World, Sports, Business, and Sci/Tech. The default course run derives balanced subsets of 2,000 training and 500 validation examples from the official training split and retains 1,000 balanced official-test examples for one locked evaluation.
+
+Files are cached under data/raw/huggingface/, and pretrained ModernBERT weights remain in the Hugging Face cache. Both locations are excluded from Git. The dataset card lists the license as unknown and describes academic, non-commercial research use. Review the [dataset card](https://huggingface.co/datasets/fancyzhx/ag_news), original source, and institutional requirements before use or redistribution. This repository includes neither the data nor model weights.

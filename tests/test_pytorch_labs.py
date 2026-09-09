@@ -18,7 +18,13 @@ from labs.week10_transfer_learning_pytorch import (
     trainable_parameter_count,
     unfreeze_final_feature_stage,
 )
-from labs.week11_sequence_pytorch import LSTMClassifier
+from labs.week11_modernbert_news import stratified_indices
+from labs.week11_sequence_pytorch import (
+    LSTMClassifier,
+    RNNClassifier,
+    make_delayed_memory_split,
+    scaled_dot_product_attention,
+)
 from labs.week12_autoencoder_pytorch import Autoencoder
 
 
@@ -90,8 +96,42 @@ def test_convnext_transfer_head_and_unfreezing_boundary():
     assert trainable_parameter_count(model) == 14297098
 
 def test_sequence_classifier_shape():
-    model = LSTMClassifier(input_size=6, hidden_size=12, num_classes=3)
-    assert model(torch.randn(8, 20, 6)).shape == (8, 3)
+    inputs = torch.randn(8, 20, 6)
+    for model_type in (RNNClassifier, LSTMClassifier):
+        model = model_type(input_size=6, hidden_size=12, num_classes=3)
+        assert model(inputs).shape == (8, 3)
+
+
+def test_delayed_memory_data_and_attention_mask_are_auditable():
+    inputs, targets = make_delayed_memory_split(12, 20, seed=705)
+    repeated_inputs, repeated_targets = make_delayed_memory_split(12, 20, seed=705)
+    assert torch.equal(inputs, repeated_inputs)
+    assert torch.equal(targets, repeated_targets)
+    assert inputs.shape == (12, 20, 4)
+    assert torch.equal(inputs[:, 0, 3], torch.ones(12))
+    assert torch.equal(inputs[:, 0, :3].argmax(dim=1), targets)
+
+    query = torch.randn(2, 4, 8)
+    key = torch.randn(2, 4, 8)
+    value = torch.randn(2, 4, 6)
+    causal = torch.ones(4, 4, dtype=torch.bool).tril()
+    output, weights = scaled_dot_product_attention(query, key, value, causal)
+    assert output.shape == (2, 4, 6)
+    assert torch.allclose(weights.sum(dim=-1), torch.ones(2, 4))
+    assert torch.equal(weights.masked_select(~causal), torch.zeros(12))
+
+
+def test_modernbert_split_indices_are_balanced_disjoint_and_repeatable():
+    labels = torch.arange(4).repeat_interleave(20).tolist()
+    training, validation = stratified_indices(labels, 10, 5, seed=705)
+    repeated_training, repeated_validation = stratified_indices(
+        labels, 10, 5, seed=705
+    )
+    assert training == repeated_training
+    assert validation == repeated_validation
+    assert set(training).isdisjoint(validation)
+    assert torch.bincount(torch.tensor(labels)[training], minlength=4).tolist() == [10] * 4
+    assert torch.bincount(torch.tensor(labels)[validation], minlength=4).tolist() == [5] * 4
 
 
 def test_autoencoder_shapes():
