@@ -17,6 +17,7 @@ The first release contains compact, auditable scripts. Dataset-based labs declar
 | 10 extension | [week10_transfer_learning_pytorch.py](week10_transfer_learning_pytorch.py) | ConvNeXt-Tiny fixed-feature transfer and optional staged fine-tuning on CIFAR-10 |
 | 11A | [week11_sequence_pytorch.py](week11_sequence_pytorch.py) | A controlled vanilla-RNN/LSTM delayed-memory comparison, locked length stress test, gradient inspection, and causal-attention audit |
 | 11B | [week11_modernbert_news.py](week11_modernbert_news.py) | ModernBERT-base fixed-feature transfer and optional partial fine-tuning for real AG News topic classification |
-| 12 | [`week12_autoencoder_pytorch.py`](week12_autoencoder_pytorch.py) | Autoencoder reconstructs vectors through a latent representation |
+| 12A | [week12_autoencoder_pytorch.py](week12_autoencoder_pytorch.py) | Validation-selected convolutional autoencoder and VAE on balanced Fashion-MNIST subsets, with locked reconstruction, KL, samples, and interpolation evidence |
+| 12B | [week12_ddpm_cifar10.py](week12_ddpm_cifar10.py) | Pretrained DDPM on CIFAR-10 with an explicit reverse loop, DDPM/DDIM scheduler comparison, timing, trajectory evidence, and optional protocol-declared FID |
 
 Run scripts from the repository root. Downloaded datasets and pretrained weights stay in ignored local data or cache directories and are not redistributed by this repository.

@@ -25,7 +25,18 @@ from labs.week11_sequence_pytorch import (
     make_delayed_memory_split,
     scaled_dot_product_attention,
 )
-from labs.week12_autoencoder_pytorch import Autoencoder
+from labs.week12_autoencoder_pytorch import (
+    Autoencoder,
+    ConvAutoencoder,
+    ConvVAE,
+    stratified_indices as fashion_stratified_indices,
+    vae_terms,
+)
+from labs.week12_ddpm_cifar10 import (
+    linear_beta_schedule,
+    noise_prediction_loss,
+    q_sample,
+)
 
 
 def test_cnn_output_shapes_parameters_and_update():
@@ -139,3 +150,52 @@ def test_autoencoder_shapes():
     reconstruction, latent = model(torch.randn(12, 32))
     assert reconstruction.shape == (12, 32)
     assert latent.shape == (12, 4)
+
+def test_convolutional_autoencoder_and_vae_shapes_and_losses():
+    torch.manual_seed(705)
+    images = torch.rand(4, 1, 28, 28)
+    autoencoder = ConvAutoencoder(latent_dim=8)
+    vae = ConvVAE(latent_dim=8)
+
+    ae_reconstruction, ae_latent = autoencoder(images)
+    reconstruction, mean, log_variance, latent = vae(images)
+    assert ae_reconstruction.shape == images.shape
+    assert ae_latent.shape == (4, 8)
+    assert reconstruction.shape == images.shape
+    assert mean.shape == log_variance.shape == latent.shape == (4, 8)
+
+    zero_noise = torch.zeros_like(mean)
+    assert torch.equal(ConvVAE.reparameterize(mean, log_variance, zero_noise), mean)
+    objective, reconstruction_bce, kl = vae_terms(
+        reconstruction, images, mean, log_variance, beta=1.0
+    )
+    assert objective >= reconstruction_bce
+    assert kl >= 0
+
+
+def test_fashion_split_and_diffusion_forward_process_are_auditable():
+    labels = torch.arange(10).repeat_interleave(20)
+    training, validation = fashion_stratified_indices(labels, 10, 5, seed=705)
+    repeated_training, repeated_validation = fashion_stratified_indices(
+        labels, 10, 5, seed=705
+    )
+    assert training == repeated_training
+    assert validation == repeated_validation
+    assert set(training).isdisjoint(validation)
+    assert torch.bincount(labels[training], minlength=10).tolist() == [10] * 10
+    assert torch.bincount(labels[validation], minlength=10).tolist() == [5] * 10
+
+    beta, alpha, alpha_bar = linear_beta_schedule(100)
+    assert beta.shape == alpha.shape == alpha_bar.shape == (100,)
+    assert torch.all(alpha_bar[1:] < alpha_bar[:-1])
+    clean = torch.ones(4, 3, 8, 8)
+    timesteps = torch.tensor([0, 10, 50, 99])
+    fixed_noise = torch.zeros_like(clean)
+    noisy, returned_noise = q_sample(clean, timesteps, alpha_bar, fixed_noise)
+    expected = alpha_bar[timesteps].sqrt().reshape(-1, 1, 1, 1) * clean
+    assert torch.allclose(noisy, expected)
+    assert torch.equal(returned_noise, fixed_noise)
+    assert torch.isclose(
+        noise_prediction_loss(torch.ones_like(clean), torch.zeros_like(clean)),
+        torch.tensor(1.0),
+    )

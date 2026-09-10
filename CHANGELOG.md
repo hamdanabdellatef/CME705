@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+- expanded Week 12 into a complete autoencoder and generative-model package covering deterministic autoencoders, autoregressive models, VAEs, GANs, normalizing flows, diffusion and score models, and energy-based models;
+- added detailed derivations for the ELBO, reparameterization, adversarial game, change of variables, DDPM corruption and reversal, score relation, EBM gradient, and FID;
+- replaced the vector-only placeholder with a validation-selected convolutional autoencoder and VAE experiment on balanced Fashion-MNIST subsets with locked testing and generated evidence;
+- added a modern pretrained DDPM lab on CIFAR-10 with automatic CUDA selection, explicit reverse steps, DDPM/DDIM comparison, timing, trajectory capture, and optional protocol-declared FID;
+- added a paper-sourced CIFAR-10 snapshot, recent-system map, primary-source reading guide, and controlled generative-model ablation and robustness milestone;
 
 - expanded Week 11 into a complete sequence-model package covering recurrent computation, backpropagation through time, LSTM gates, scaled dot-product attention, masking, multi-head attention, and Transformer encoder blocks;
 - added a controlled PyTorch RNN-versus-LSTM delayed-memory experiment with validation checkpointing, a locked longer-sequence stress test, gradient inspection, and an auditable attention implementation;

@@ -37,7 +37,7 @@ Verify the selected runtime:
 python -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
 ```
 
-Weeks 10 and 11 select CUDA automatically when available. Use `--device cpu` only when a CPU comparison or fallback is required. First runs download MNIST, AG News, or pretrained weights beneath the ignored `data/raw/` directory.
+Weeks 10–12 select CUDA automatically when available. Use `--device cpu` only when a CPU comparison or fallback is required. First runs may download MNIST, Fashion-MNIST, CIFAR-10, AG News, or pretrained weights beneath the ignored `data/raw/` directory.
 
 ## Verify the release
 
@@ -58,10 +58,12 @@ python labs/week10_transfer_learning_pytorch.py --audit-only --device cpu
 python labs/week11_sequence_pytorch.py --audit-only
 python labs/week11_sequence_pytorch.py
 python labs/week11_modernbert_news.py --audit-only
+python labs/week12_autoencoder_pytorch.py --audit-only
 python labs/week12_autoencoder_pytorch.py
+python labs/week12_ddpm_cifar10.py --audit-only
 ```
 
-Each example uses a fixed seed. Most labs use generated data. Week 10 downloads MNIST through TorchVision. The Week 11 ModernBERT extension downloads AG News and pretrained weights. Both preserve an official test partition for final evaluation. Successful execution verifies the software path; it does not establish scientific validity for a new dataset.
+Each example uses a fixed seed. Most labs use generated data. Week 10 downloads MNIST through TorchVision. The Week 11 ModernBERT extension downloads AG News and pretrained weights. Week 12 downloads Fashion-MNIST for the AE/VAE experiment; its modern extension downloads a public CIFAR-10 DDPM checkpoint and optionally CIFAR-10 reference images. Dataset-based training labs preserve an official test partition for final evaluation. Successful execution verifies the software path; it does not establish scientific validity for a new dataset.
 
 ## Reproducible project checklist
 

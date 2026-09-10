@@ -15,7 +15,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | 9 | [Convolutional networks and spatial structure](modules/07-convolutional-networks/week09.md) | [NumPy convolution mechanics](labs/week09_convolution_numpy.py) | [Method-choice review](research-project/method-choice-review.md) |
 | 10 | [CNN implementation, training, and inspection](modules/07-convolutional-networks/week10.md) | [Reproducible PyTorch CNN](labs/week10_cnn_pytorch.py) | [Results and error analysis](research-project/results-and-error-analysis.md) |
 | 11 | [RNNs, LSTMs, attention, and Transformers](modules/08-sequence-models/week11.md) | [Delayed-memory RNN/LSTM](labs/week11_sequence_pytorch.py); [ModernBERT on AG News](labs/week11_modernbert_news.py) | [Sequence-model research direction](research-project/sequence-model-research-direction.md) |
-| 12 | [Autoencoders and generative models](modules/09-generative-models/README.md) | [PyTorch autoencoder](labs/week12_autoencoder_pytorch.py) | Ablation or robustness experiment |
+| 12 | [Autoencoders and generative models](modules/09-generative-models/week12.md) | [Autoencoder/VAE on Fashion-MNIST](labs/week12_autoencoder_pytorch.py); [DDPM on CIFAR-10](labs/week12_ddpm_cifar10.py) | [Generative-model ablation](research-project/generative-model-ablation.md) |
 | 13 | [Research practice](modules/10-research-practice/README.md) | Reproduction and peer-review workshop | Draft report and peer feedback |
 | 14 | [Research practice](modules/10-research-practice/README.md) | Project presentations | Reproducible submission and research-direction note |
 

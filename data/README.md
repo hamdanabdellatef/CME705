@@ -32,3 +32,14 @@ Files are downloaded under `data/raw/` and ignored by Git. ImageNet-pretrained C
 The Week 11 ModernBERT lab retrieves fancyzhx/ag_news through the Hugging Face Datasets library. The dataset card exposes 120,000 official training rows and 7,600 official test rows across World, Sports, Business, and Sci/Tech. The default course run derives balanced subsets of 2,000 training and 500 validation examples from the official training split and retains 1,000 balanced official-test examples for one locked evaluation.
 
 Files are cached under data/raw/huggingface/, and pretrained ModernBERT weights remain in the Hugging Face cache. Both locations are excluded from Git. The dataset card lists the license as unknown and describes academic, non-commercial research use. Review the [dataset card](https://huggingface.co/datasets/fancyzhx/ag_news), original source, and institutional requirements before use or redistribution. This repository includes neither the data nor model weights.
+## Fashion-MNIST for Week 12
+
+The Week 12 autoencoder and VAE lab retrieves Fashion-MNIST through [`torchvision.datasets.FashionMNIST`](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.FashionMNIST.html). The official dataset contains 60,000 training images and 10,000 test images across ten apparel categories. The course lab derives deterministic balanced subsets of 10,000 training and 2,000 validation images from the official training partition and retains 2,000 balanced official-test images for one locked evaluation.
+
+Files are downloaded beneath `data/raw/FashionMNIST/` and excluded from Git. The repository stores neither dataset files nor trained checkpoints. Review the [Fashion-MNIST repository](https://github.com/zalandoresearch/fashion-mnist), its MIT license, and institutional requirements before redistribution.
+
+## CIFAR-10 DDPM extension for Week 12
+
+The modern Week 12 lab downloads the Apache-2.0 [`google/ddpm-cifar10-32`](https://huggingface.co/google/ddpm-cifar10-32) checkpoint at revision `267b167dc01f0e4e61923ea244e8b988f84deb80` into the ignored Hugging Face cache beneath `data/raw/`. The model card associates the checkpoint with the DDPM paper and reports a roughly 35.7-million-parameter unconditional U-Net for 32-by-32 CIFAR-10 images.
+
+Default sampling requires no local CIFAR-10 copy. The optional FID path retrieves CIFAR-10 through TorchVision and prints whether the training or test split supplies real reference features. Generated samples, trajectories, and metric outputs stay beneath ignored `outputs/`. A small course FID is not comparable to a published 50,000-sample result unless preprocessing, features, real statistics, conditioning, sampler, checkpoint, and sample count match.
