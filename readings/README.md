@@ -10,6 +10,7 @@ This release links to sources instead of redistributing books, papers, or extern
 - [Week 10 transfer-learning reading](week10-transfer-learning.md), with a ConvNeXt-Tiny fixed-feature and staged fine-tuning example
 - [Week 11 sequence-model reading](week11-sequence-models.md), covering benchmark families, recent architectures, and research directions
 - [Week 12 generative-model reading](week12-generative-models.md), covering mathematical foundations, benchmark protocols, recent systems, and research directions
+- [Week 13 reproducibility and peer-review reading](week13-reproducibility-and-peer-review.md), covering artifact identity, uncertainty, checklists, reporting, and research directions
 - [PyTorch transfer learning for computer vision](https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
 
 ## Evaluation and reporting

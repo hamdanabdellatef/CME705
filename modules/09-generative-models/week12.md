@@ -146,7 +146,7 @@ $$
 so a training pair can be sampled directly:
 
 $$
-x_t=\sqrt{\bar{\alpha}_t}x_0+sqrt{1-\bar{\alpha}_t}\epsilon,
+x_t=\sqrt{\bar{\alpha}_t}x_0+\sqrt{1-\bar{\alpha}_t}\epsilon,
 \qquad \epsilon\sim\mathcal{N}(0,I).
 $$
 

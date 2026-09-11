@@ -264,7 +264,7 @@ $$
 $$
 
 $$
-x_t=\sqrt{\bar{\alpha}_t}x_0+sqrt{1-\bar{\alpha}_t}\epsilon
+x_t=\sqrt{\bar{\alpha}_t}x_0+\sqrt{1-\bar{\alpha}_t}\epsilon
 $$
 
 Any noise level can be sampled directly during training.

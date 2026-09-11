@@ -4,7 +4,7 @@
 
 A 14-week graduate course developed for the Department of Computer Engineering at Karabuk University. The course connects machine-learning foundations with implementation and research practice. Students build core neural-network methods with NumPy, use PyTorch for modern deep-learning models, and develop a research question through a semester project.
 
-This repository is the first reorganized release of material taught in Spring 2022. It establishes the complete course route, assessment structure, Python environment, tested example code, and research-project workflow. Detailed lecture notes and additional notebooks will be expanded in later releases.
+This repository is the first reorganized release of material taught in Spring 2022. It establishes the complete course route, assessment structure, Python environment, tested example code, and research-project workflow. Detailed teaching packages are included through Week 13; the Week 14 capstone package and additional notebooks can be expanded in later releases.
 
 ## Start here
 
@@ -41,7 +41,7 @@ The course uses Python, NumPy, and PyTorch. MATLAB material from the historical 
 
 ## Release status
 
-Version 0.1.0 is the first public-ready structure. The examples use generated data so the repository remains small and its basic checks can run without downloading datasets. Dataset-based notebooks and complete lecture notes are planned as later, separately reviewed additions.
+Version 0.1.0 is the first public-ready course. Core NumPy labs use generated data; the PyTorch CNN, sequence, and generative-model labs download declared public datasets or pretrained weights at run time. Downloads, checkpoints, and generated outputs stay outside version control.
 
 ## Citation and license
 

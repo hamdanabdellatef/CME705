@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+- expanded Week 13 into a complete reproducible-research and peer-review package connecting claims, protocols, artifacts, uncertainty, validity, review, and report revision;
+- added a NumPy experiment that produces and verifies a hashed artifact bundle, compares paired training seeds, reports a Student-t confidence interval, and detects tampering;
+- added a structured peer-reproduction protocol, focused review-comment workflow, student worksheet, instructor guide, and research-report template;
+- added primary-source reading on ACM artifact terminology, the NeurIPS checklist, reproducibility evidence, reporting artifacts, and open research directions;
+
 - expanded Week 12 into a complete autoencoder and generative-model package covering deterministic autoencoders, autoregressive models, VAEs, GANs, normalizing flows, diffusion and score models, and energy-based models;
 - added detailed derivations for the ELBO, reparameterization, adversarial game, change of variables, DDPM corruption and reversal, score relation, EBM gradient, and FID;
 - replaced the vector-only placeholder with a validation-selected convolutional autoencoder and VAE experiment on balanced Fashion-MNIST subsets with locked testing and generated evidence;

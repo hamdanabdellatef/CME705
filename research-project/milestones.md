@@ -14,7 +14,7 @@
 | 10 | [Results and error analysis](results-and-error-analysis.md) | Frozen configuration, selection history, locked results, structured errors, and one controlled check |
 | 11 | [Sequence-model research direction](sequence-model-research-direction.md) | Prediction time, three primary sources, benchmark-aligned metric, stress test, and rejection condition |
 | 12 | [Generative-model ablation](generative-model-ablation.md) | One changed mechanism, frozen controls, a directional prediction, protocol-qualified metrics, compute, and locked robustness evidence |
-| 13 | Reproducibility review | Peer reproduction record and corrected instructions |
+| 13 | [Reproducibility review](../assignments/05-reproducibility-review.md) | Fixed commit, declared tolerance, fresh-environment peer run, focused comment, corrected rerun, and [revised draft report](report-template.md) |
 | 14 | Final submission | Report, repository, presentation, and research-direction note |
 
 A milestone may report a failed experiment. It should explain what was attempted, what was observed, and what decision follows.

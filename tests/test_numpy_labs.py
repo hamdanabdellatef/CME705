@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from labs.week09_convolution_numpy import (
     average_pool2d,
@@ -79,6 +80,17 @@ from labs.week08_dropout_numpy import (
     relu_backward,
     run_controlled_comparison,
     sigmoid_dropout_backward,
+)
+
+from labs.week13_reproducibility_audit import (
+    ExperimentConfig,
+    canonical_json,
+    make_research_data,
+    produce_bundle,
+    run_experiment,
+    sha256_bytes,
+    stratified_split as week13_stratified_split,
+    verify_bundle,
 )
 
 
@@ -434,3 +446,43 @@ def test_week09_convolution_shapes_sharing_gradients_and_spatial_behavior():
     )
     assert [step.receptive_field for step in schedule] == [3, 4, 8]
     assert [step.jump for step in schedule] == [1, 2, 2]
+
+def test_week13_protocol_is_deterministic_paired_and_split_safe():
+    config = ExperimentConfig()
+    features, target = make_research_data(config)
+    split = week13_stratified_split(target, config)
+    _, summary, repeated_split = run_experiment(config)
+
+    assert set(split.train).isdisjoint(split.validation)
+    assert set(split.train).isdisjoint(split.test)
+    assert set(split.validation).isdisjoint(split.test)
+    assert np.array_equal(split.train, repeated_split.train)
+    assert np.array_equal(split.validation, repeated_split.validation)
+    assert np.array_equal(split.test, repeated_split.test)
+    assert summary["run_count"] == len(config.training_seeds)
+    assert summary["mean_paired_difference"] > 0.05
+    assert summary["paired_95_percent_t_interval"][0] > 0.0
+    assert sha256_bytes(canonical_json({"b": 2, "a": [1, 3]})) == (
+        sha256_bytes(canonical_json({"a": [1, 3], "b": 2}))
+    )
+
+
+def test_week13_bundle_round_trip_and_tamper_detection(tmp_path):
+    artifact_dir = tmp_path / "week13-bundle"
+    config = ExperimentConfig(
+        sample_count=300,
+        epochs=20,
+        training_seeds=(13, 29),
+    )
+    produce_bundle(artifact_dir, config)
+    result = verify_bundle(artifact_dir)
+
+    assert result["status"] == "PASS"
+    assert result["files_verified"] == 4
+    assert result["source_verified"]
+    assert result["split_disjoint"]
+
+    summary_path = artifact_dir / "summary.json"
+    summary_path.write_bytes(summary_path.read_bytes() + b"\n")
+    with pytest.raises(RuntimeError, match="Artifact hash mismatch"):
+        verify_bundle(artifact_dir)

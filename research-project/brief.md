@@ -18,7 +18,7 @@ Develop and investigate a feasible machine-learning question connected to an app
 ## Deliverables
 
 - a repository containing the code and reproduction instructions;
-- a concise report of approximately 5–7 pages excluding references and appendices;
+- a concise report of approximately 5–7 pages excluding references and appendices, developed with the [`report-template.md`](report-template.md);
 - a presentation focused on the question, evidence, and limitations; and
 - the milestone records listed in [`milestones.md`](milestones.md).
 
