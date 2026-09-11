@@ -20,5 +20,6 @@ The first release contains compact, auditable scripts. Dataset-based labs declar
 | 12A | [week12_autoencoder_pytorch.py](week12_autoencoder_pytorch.py) | Validation-selected convolutional autoencoder and VAE on balanced Fashion-MNIST subsets, with locked reconstruction, KL, samples, and interpolation evidence |
 | 12B | [week12_ddpm_cifar10.py](week12_ddpm_cifar10.py) | Pretrained DDPM on CIFAR-10 with an explicit reverse loop, DDPM/DDIM scheduler comparison, timing, trajectory evidence, and optional protocol-declared FID |
 | 13 | [week13_reproducibility_audit.py](week13_reproducibility_audit.py) | A hash-verified experiment bundle, paired-seed comparison with a confidence interval, clean verification, and deliberate tamper detection |
+| 14 | [week14_release_audit.py](week14_release_audit.py) | A static audit of release structure, portable paths, declared artifact hashes, Git identity, and accidental credential patterns without executing project code |
 
 Run scripts from the repository root. Downloaded datasets and pretrained weights stay in ignored local data or cache directories and are not redistributed by this repository.

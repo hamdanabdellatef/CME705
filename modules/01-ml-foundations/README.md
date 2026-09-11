@@ -45,7 +45,7 @@ No previous machine-learning course is assumed. Students should be comfortable w
 2. Separate the application goal from the prediction task.
 3. Identify observations, features, targets, and model outputs.
 4. Compare common learning-task types.
-5. Express a linear scoring rule as \(s = Xw + b\).
+5. Express a linear scoring rule as $s = Xw + b$.
 6. Run the diagnostic and compare the rule with a majority-class baseline.
 7. Record what the result supports and what remains unknown.
 8. Apply the same formulation process to a possible research interest.

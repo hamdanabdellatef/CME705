@@ -17,7 +17,7 @@ The schedule uses stable topic modules. An instructor may adjust dates without r
 | 11 | [RNNs, LSTMs, attention, and Transformers](modules/08-sequence-models/week11.md) | [Delayed-memory RNN/LSTM](labs/week11_sequence_pytorch.py); [ModernBERT on AG News](labs/week11_modernbert_news.py) | [Sequence-model research direction](research-project/sequence-model-research-direction.md) |
 | 12 | [Autoencoders and generative models](modules/09-generative-models/week12.md) | [Autoencoder/VAE on Fashion-MNIST](labs/week12_autoencoder_pytorch.py); [DDPM on CIFAR-10](labs/week12_ddpm_cifar10.py) | [Generative-model ablation](research-project/generative-model-ablation.md) |
 | 13 | [Reproducible ML research and peer review](modules/10-research-practice/week13.md) | [Reproducibility audit](labs/week13_reproducibility_audit.py) and peer-review workshop | [Reproducibility review](assignments/05-reproducibility-review.md) and [draft report](research-project/report-template.md) |
-| 14 | [Research practice](modules/10-research-practice/README.md) | Project presentations | Reproducible submission and research-direction note |
+| 14 | [Research presentation, final release, and next direction](modules/10-research-practice/week14.md) | [Project presentations and static release audit](labs/week14_release_audit.py) | [Final project submission](assignments/06-final-project-submission.md) and [research-direction note](research-project/research-direction-note.md) |
 
 ## Standard weekly rhythm
 

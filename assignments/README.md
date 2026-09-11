@@ -7,5 +7,6 @@
 | [Literature comparison](03-literature-comparison.md) | Week 4 | Compare credible related work and identify a gap |
 | [Controlled experiment](04-controlled-experiment.md) | Week 8 | Isolate one technical choice and interpret evidence |
 | [Reproducibility review](05-reproducibility-review.md) | Week 13 | Independently reproduce one result, verify a correction, and align the draft report with the evidence |
+| [Final project release, presentation, and research direction](06-final-project-submission.md) | Week 14 | Freeze a reviewable release, defend one contribution, and propose a discriminating next experiment |
 
 The instructor should announce submission dates and institutional platform for each offering. Requirements and rubrics remain in the repository so students can begin before those dates are configured.

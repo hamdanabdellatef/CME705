@@ -104,9 +104,9 @@ Changing the unit changes the features, target, split, and conclusion.
 
 For each observation:
 
-- features \(x\) describe information available at decision time;
-- target \(y\) records the outcome used for learning;
-- model \(f(x)\) produces a score or prediction; and
+- features $x$ describe information available at decision time;
+- target $y$ records the outcome used for learning;
+- model $f(x)$ produces a score or prediction; and
 - metric compares predictions with observed outcomes.
 
 Prompt: Which target could be measured reliably?
@@ -156,21 +156,21 @@ If a field remains ambiguous, the experiment remains ambiguous.
 
 Feature matrix:
 
-\[
+$$
 X \in \mathbb{R}^{n \times d}
-\]
+$$
 
 Linear score:
 
-\[
+$$
 s = Xw + b
-\]
+$$
 
 Binary prediction:
 
-\[
+$$
 \hat{y}_i = 1 \text{ when } s_i \ge 0
-\]
+$$
 
 Week 1 inspects chosen weights. Later weeks learn them from data.
 

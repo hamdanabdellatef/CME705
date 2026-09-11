@@ -28,6 +28,22 @@
 - [Reproducibility review assignment](../../assignments/05-reproducibility-review.md)
 - [Research report template](../../research-project/report-template.md)
 
+## Week 14 package
+
+- [Week 14 lesson](week14.md)
+- [Detailed presentation and release notes](week14-notes.md)
+- [Accessible slide source](week14-slides.md)
+- [Student worksheet](week14-worksheet.md)
+- [Instructor PowerPoint](slides/week14-research-presentation-and-final-release.pptx)
+- [Instructor guide](../../instructor-notes/week14.md)
+- [Editable student PowerPoint template](../../research-project/slides/cme705-project-presentation-template.pptx)
+- [Final-project submission](../../assignments/06-final-project-submission.md)
+- [Presentation rubric](../../research-project/presentation-rubric.md) and [peer-feedback form](../../research-project/peer-feedback.md)
+- [Final-release checklist](../../research-project/final-release-checklist.md) and [example release manifest](../../research-project/project-release.example.json)
+- [Static release audit](../../labs/week14_release_audit.py)
+- [Research-direction note](../../research-project/research-direction-note.md)
+- [Research communication and release reading](../../readings/week14-research-communication-and-release.md)
+
 ## Topics
 
 - research questions and claim scope
@@ -47,4 +63,4 @@ A peer can start from the submitted repository state, run the declared command, 
 
 ## Place in the course
 
-Week 13 prepares the project for independent review. Week 14 presents the verified evidence, limitations, and research-direction note. Consult the [course schedule](../../schedule.md) and [project brief](../../research-project/brief.md).
+Week 13 prepares the project for independent review. Week 14 presents and defends the verified evidence, freezes the final release, and turns a specific limitation into a feasible next study. Consult the [course schedule](../../schedule.md) and [project brief](../../research-project/brief.md).

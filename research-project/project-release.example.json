@@ -1,0 +1,52 @@
+{
+  "schema": "cme705-final-release-v1",
+  "release": {
+    "repository": "https://example.org/replace-with-project-repository",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "version": "final-course-submission",
+    "license": "LICENSE.md",
+    "citation": "CITATION.cff",
+    "privacy_review": "Completed; no credentials, personal records, or prohibited artifacts are included.",
+    "known_limitations": [
+      "Replace with a limitation that changes the scope of a claim."
+    ],
+    "research_direction": "research-direction.md"
+  },
+  "data": {
+    "source": "Replace with dataset source or generated-data procedure.",
+    "version": "Replace with version, date, DOI, or checksum.",
+    "access": "public",
+    "license": "Replace with license or access terms.",
+    "split_identity": "Replace with split file, checksum, or deterministic procedure.",
+    "access_instructions": "Replace with permitted download or access instructions."
+  },
+  "reproduction": {
+    "command": "python path/to/final_experiment.py --config configs/final.json",
+    "expected_result": "Replace with metric, units, split, and expected value.",
+    "agreement_criterion": "Replace with numerical, repeated-run, or behavioral criterion.",
+    "runtime": "Replace with measured or bounded runtime.",
+    "device": "Replace with CPU, GPU, memory, and precision."
+  },
+  "artifacts": {
+    "report": {
+      "path": "report/final-report.pdf",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "presentation": {
+      "path": "presentation/final-presentation.pdf",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "environment": {
+      "path": "requirements.txt",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "configuration": {
+      "path": "configs/final.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "result": {
+      "path": "outputs/final/metrics.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+}

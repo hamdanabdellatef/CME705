@@ -113,27 +113,27 @@ The second statement still needs data access, ethics review, label validation, a
 
 ## 7. A first model expression
 
-The diagnostic lab represents \(n\) machines with \(d\) features as a matrix:
+The diagnostic lab represents $n$ machines with $d$ features as a matrix:
 
-\[
+$$
 X \in \mathbb{R}^{n \times d}
-\]
+$$
 
 Each row is one observation. Each column is one feature. A linear scoring rule assigns each row a score:
 
-\[
+$$
 s = Xw + b
-\]
+$$
 
-where \(w \in \mathbb{R}^{d}\) contains feature weights and \(b\) is a bias. For binary classification, a threshold converts each score into a predicted class:
+where $w \in \mathbb{R}^{d}$ contains feature weights and $b$ is a bias. For binary classification, a threshold converts each score into a predicted class:
 
-\[
+$$
 \hat{y}_i =
 \begin{cases}
 1 & \text{if } s_i \ge 0 \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 Week 1 uses a hand-designed weight vector so we can inspect the computation. Weeks 5 and 6 show how a learning procedure estimates parameters from data.
 

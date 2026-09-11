@@ -4,7 +4,7 @@
 
 A 14-week graduate course developed for the Department of Computer Engineering at Karabuk University. The course connects machine-learning foundations with implementation and research practice. Students build core neural-network methods with NumPy, use PyTorch for modern deep-learning models, and develop a research question through a semester project.
 
-This repository is the first reorganized release of material taught in Spring 2022. It establishes the complete course route, assessment structure, Python environment, tested example code, and research-project workflow. Detailed teaching packages are included through Week 13; the Week 14 capstone package and additional notebooks can be expanded in later releases.
+This repository is the first reorganized release of material taught in Spring 2022. It establishes the complete course route, assessment structure, Python environment, tested example code, and research-project workflow. Detailed teaching packages now cover the full 14-week sequence, including the final research presentation, reproducible release, and research-direction capstone.
 
 ## Start here
 

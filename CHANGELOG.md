@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+- completed Week 14 with an evidence-centered research-presentation lesson, rehearsal and Q&A protocols, final-release workflow, and degree-stage research-direction clinic;
+- added a validated 26-slide instructor deck and editable 10-slide student presentation template, both with speaker notes and accessible Markdown sources;
+- added the final-project submission, presentation rubric, peer-feedback form, release checklist, example manifest, and structured research-direction note; and
+- added a tested static release audit for schema, portable paths, artifact hashes, Git identity, and accidental credential patterns without executing student project code;
+
 - expanded Week 13 into a complete reproducible-research and peer-review package connecting claims, protocols, artifacts, uncertainty, validity, review, and report revision;
 - added a NumPy experiment that produces and verifies a hashed artifact bundle, compares paired training seeds, reports a Student-t confidence interval, and detects tampering;
 - added a structured peer-reproduction protocol, focused review-comment workflow, student worksheet, instructor guide, and research-report template;

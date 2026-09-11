@@ -19,7 +19,7 @@ Develop and investigate a feasible machine-learning question connected to an app
 
 - a repository containing the code and reproduction instructions;
 - a concise report of approximately 5–7 pages excluding references and appendices, developed with the [`report-template.md`](report-template.md);
-- a presentation focused on the question, evidence, and limitations; and
+- an 8-minute presentation focused on the question, evidence, and limitations, developed with the [presentation storyboard](presentation-template.md); and
 - the milestone records listed in [`milestones.md`](milestones.md).
 
-Use figures and tables where they improve comparison or explanation. Every figure and result must identify its source or generating command. See [`rubric.md`](rubric.md) before selecting a project.
+The final package follows [Assignment 6](../assignments/06-final-project-submission.md) and the [final-release checklist](final-release-checklist.md). Use figures and tables where they improve comparison or explanation. Every figure and result must identify its source or generating command. See [`rubric.md`](rubric.md) before selecting a project.

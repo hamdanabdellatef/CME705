@@ -64,9 +64,10 @@ python labs/week12_ddpm_cifar10.py --audit-only
 python labs/week13_reproducibility_audit.py --audit-only
 python labs/week13_reproducibility_audit.py
 python labs/week13_reproducibility_audit.py --verify outputs/week13/reference
+python labs/week14_release_audit.py --audit-only
 ```
 
-Each example uses a fixed seed. Most labs use generated data. Week 10 downloads MNIST through TorchVision. The Week 11 ModernBERT extension downloads AG News and pretrained weights. Week 12 downloads Fashion-MNIST for the AE/VAE experiment; its modern extension downloads a public CIFAR-10 DDPM checkpoint and optionally CIFAR-10 reference images. Week 13 uses generated NumPy data and writes a hash-verified experiment bundle beneath the ignored `outputs/` directory. Dataset-based training labs preserve an official test partition for final evaluation. Successful execution verifies the software path; it does not establish scientific validity for a new dataset.
+Each example uses a fixed seed. Most labs use generated data. Week 10 downloads MNIST through TorchVision. The Week 11 ModernBERT extension downloads AG News and pretrained weights. Week 12 downloads Fashion-MNIST for the AE/VAE experiment; its modern extension downloads a public CIFAR-10 DDPM checkpoint and optionally CIFAR-10 reference images. Week 13 uses generated NumPy data and writes a hash-verified experiment bundle beneath the ignored `outputs/` directory. Week 14 performs a static teaching audit of a declared release; it does not execute the project's reproduction command. Dataset-based training labs preserve an official test partition for final evaluation. Successful execution verifies the software path; it does not establish scientific validity for a new dataset.
 
 ## Reproducible project checklist
 
