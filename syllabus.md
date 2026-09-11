@@ -35,7 +35,7 @@ Each week combines a concept guide, implementation or experiment, and progress o
 | Component | Weight | Evidence |
 | --- | ---: | --- |
 | Participation and research workshops | 5% | Prepared participation and constructive peer feedback |
-| Assignments | 20% | Five assignments listed in [`assignments/`](assignments/README.md) |
+| Assignments | 20% | Six assignments listed in [`assignments/`](assignments/README.md) |
 | Midterm assessment | 15% | Foundations, optimization, and neural-network reasoning |
 | Final assessment | 30% | Deep-learning concepts and interpretation of the student's project |
 | Research project | 30% | Milestones, reproducible code, report, and presentation |
